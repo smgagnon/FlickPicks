@@ -53,6 +53,12 @@ router.get('/movies/new', (req, res) => {
 
 router.post('/new', (req, res, next) => {
   const name = req.body.name.trim();
+  const image = req.body.image.trim();
+  const genre = req.body.genre.trim();
+  const year_released = req.body.year_released.trim();
+  const length = req.body.length.trim();
+  const rating = req.body.rating.trim();
+
   if (!name) {
     res
       .status(400)
@@ -60,13 +66,18 @@ router.post('/new', (req, res, next) => {
         pageId: 'new',
         title: 'Create New Movie',
         name: name,
+        image: image,
+        genre: genre,
+        year_released: year_released,
+        length: length,
+        rating: rating,
       });
   } else {
     db.createMovie({
       name: name,
       image: image,
-      year_released: year_released,
       genre: genre,
+      year_released: year_released,
       length: length,
       rating: rating,
     })
@@ -100,6 +111,7 @@ router.post('/new', (req, res, next) => {
 
 // Shows more info about one movie.
 router.get('/movies/:id', (req, res) => {
+  res.render('/');
   // Find the show with provided ID
   // Render show template with that movie
   // res.render('/movie/movieDetails');
