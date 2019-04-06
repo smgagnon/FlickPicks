@@ -14,7 +14,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['src/db.js'],
+      files: ['server/db.js'],
       rules: { camelcase: 0 },
     },
   ],

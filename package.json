@@ -1,13 +1,14 @@
 {
-  "name": "flickpick",
+  "name": "flickpicks",
   "version": "1.0.0",
-  "description": "FlickPick",
+  "private": true,
+  "description": "FlickPicks",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon --inspect src/app.js",
+    "start": "nodemon --inspect server/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Stephanie Gagnon",
+  "author": "Stephanie Gagnon <smgagnon@hotmail.com>",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",

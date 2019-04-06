@@ -1,21 +1,20 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-    <head>
-        <title>FlickPicks</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="landing.css">
-    </head>
-    <body>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Flick Picks</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+  </head>
+  <body>
 <% include partials/header %>
-
 <div class="container">
     <header class="jumbotron">
         <div class="container">
             <h1>Flick Picks</h1>
             <p>One stop shop for all things film</p>
 
-<div><a href="/movies">View All Movies</a></div>
-<div><a href="/register">Create an Account!</a></div>
-
+<button type="button" class="btn btn-outline-dark"><a href="/movies">View All Movies</a></button>
+<button type="button" class="btn btn-outline-dark"><a href="/register">Create an Account!</a></button>
     </body>
 <% include partials/footer %>

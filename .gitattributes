@@ -1,0 +1,20 @@
+* text=auto
+
+*.js text
+*.mjs text
+*.jsx text
+*.json text
+*.pug text
+*.ejs text
+*.hbs text
+*.html text
+*.css text
+*.scss text
+*.sass text
+*.less text
+*.md text
+*.txt
+
+.gitignore text
+.editorconfig text
+LICENSE text
