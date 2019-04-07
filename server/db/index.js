@@ -28,7 +28,6 @@ async function getAllTitles() {
   return readMovies()
     .then((movies) => {
       const names = [];
-
       movies.forEach((movie) => {
         if (!names.includes(movie.name)) {
           names.push(movie.name);
@@ -86,7 +85,7 @@ async function createMovie(movie) {
 
 module.exports = {
   getAllMovies: readMovies,
-  getAllTitles: getAllTitles,
-  searchMovies: searchMovies,
-  createMovie: createMovie,
+  getAllTitles,
+  searchMovies,
+  createMovie,
 };

@@ -2,7 +2,7 @@
   {
     "movie_id": 1,
     "name": "Mamma Mia!",
-    "year_released": "2008",
+    "yearReleased": "2008",
     "length": "108 minutes",
     "genre": "Comedy, Musical, Romance",
     "director": "Phyllida Lloyd",
@@ -13,7 +13,7 @@
   {
     "movie_id": 2,
     "name": "Grease",
-    "year_released": "1978",
+    "yearReleased": "1978",
     "lenth": "110 minutes",
     "genre": "Musical, Romance",
     "director": "Randal Kleiser",
@@ -24,7 +24,7 @@
   {
     "movie_id": 3,
     "name": "Free Solo",
-    "year_released": "2018",
+    "yearReleased": "2018",
     "lenth": "100 minutes",
     "genre": "Documentary, Sport ",
     "director": "Jimmy Chin, Elizabeth Chai Vasarhelyi",
@@ -35,7 +35,7 @@
   {
     "movie_id": 4,
     "name": "Bohemian Rhapsody",
-    "year_released": "2018",
+    "yearReleased": "2018",
     "lenth": "134 minutes",
     "genre": "Biography, Drama, Music",
     "director": "Bryan Singer",
@@ -46,7 +46,7 @@
   {
     "movie_id": 5,
     "name": "Green Book",
-    "year_released": "2018",
+    "yearReleased": "2018",
     "lenth": "130 minutes",
     "genre": "Biography, Comedy, Drama ",
     "director": "Peter Farrelly",
@@ -57,7 +57,7 @@
   {
     "movie_id": 6,
     "name": "The Avengers",
-    "year_released": "2012",
+    "yearReleased": "2012",
     "lenth": "143 minutes",
     "genre": "Action, Adventure, Sci-Fi ",
     "director": "Joss Whedon",
@@ -68,7 +68,7 @@
   {
     "movie_id": 7,
     "name": "Toy Story",
-    "year_released": "1995",
+    "yearReleased": "1995",
     "lenth": "81 minutes",
     "genre": "Animation, Adventure, Comedy ",
     "director": "John Lasseter",
@@ -79,7 +79,7 @@
   {
     "movie_id": 8,
     "name": "Finding Nemo",
-    "year_released": "2003",
+    "yearReleased": "2003",
     "lenth": "100 minutes",
     "genre": "Animation, Adventure, Comedy ",
     "director": "Andrew Stanton, Lee Unkrich",
@@ -90,7 +90,7 @@
   {
     "movie_id": 9,
     "name": "Get Out",
-    "year_released": "2017",
+    "yearReleased": "2017",
     "lenth": "104 minutes",
     "genre": "Horror, Mystery, Thriller ",
     "director": "Jordan Peele",
@@ -101,7 +101,7 @@
   {
     "movie_id": 10,
     "name": "Just Go With It",
-    "year_released": "2011",
+    "yearReleased": "2011",
     "lenth": "117 minutes",
     "genre": "Comedy, Romance ",
     "director": "Dennis Dugan",
@@ -112,7 +112,7 @@
   {
     "movie_id": 11,
     "name": "Harry Potter and the Sorcerer's Stone ",
-    "year_released": "2001",
+    "yearReleased": "2001",
     "lenth": "152 minutes",
     "genre": "Adventure, Family, Fantasy",
     "director": "Chris Columbus",
@@ -124,7 +124,7 @@
     "name": "Pitch Perfect",
     "image": "https://m.media-amazon.com/images/M/MV5BMTcyMTMzNzE5N15BMl5BanBnXkFtZTcwNzg5NjM5Nw@@._V1_SY1000_CR0,0,631,1000_AL_.jpg",
     "genre": "Comedy, Music, Romance",
-    "year_released": "2012",
+    "yearReleased": "2012",
     "length": "112",
     "rating": "PG-13"
   },
@@ -132,8 +132,41 @@
     "name": "Shazam!",
     "image": "https://m.media-amazon.com/images/M/MV5BYTE0Yjc1NzUtMjFjMC00Y2I3LTg3NGYtNGRlMGJhYThjMTJmXkEyXkFqcGdeQXVyNTI4MzE4MDU@._V1_SY1000_CR0,0,674,1000_AL_.jpg",
     "genre": "Action, Adventure, Comedy",
-    "year_released": "2019",
+    "yearReleased": "2019",
     "length": "132 minutes",
+    "rating": "PG-13"
+  },
+  {
+    "name": "Dumbo",
+    "image": "https://m.media-amazon.com/images/M/MV5BNjMxMDE0MDI1Ml5BMl5BanBnXkFtZTgwMzExNTU3NjM@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
+    "genre": "Adventure, Family, Fantasy",
+    "yearReleased": "2019",
+    "length": "112 minutes",
+    "rating": "PG"
+  },
+  {
+    "name": "Star Wars: Episode VIII - The Last Jedi",
+    "image": "https://m.media-amazon.com/images/M/MV5BMjQ1MzcxNjg4N15BMl5BanBnXkFtZTgwNzgwMjY4MzI@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
+    "genre": "Action, Adventure, Fantasy",
+    "yearReleased": "2017",
+    "length": "152 Minutes",
+    "rating": "PG-13"
+  },
+  {
+    "name": "The Lord of the Rings: The Fellowship of the Ring",
+    "image": "https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_SY999_CR0,0,673,999_AL_.jpg",
+    "genre": "Adventure, Drama, Fantasy",
+    "yearReleased": "2001",
+    "length": "178 Minutes",
+    "rating": "PG-13"
+  },
+  {
+    "movie_id": 17,
+    "name": "Lawrence of Arabia",
+    "image": "https://i.ebayimg.com/images/g/aLQAAOSwLnBXUVTZ/s-l300.jpg",
+    "genre": "drama",
+    "yearReleased": "1963",
+    "length": "4 hours",
     "rating": "PG-13"
   }
 ]
