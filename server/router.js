@@ -51,24 +51,26 @@ router.get('/movies/new', (req, res) => {
   });
 });
 
+// Posts the new movie to the movie page
 router.post('/new', (req, res, next) => {
-  const movie_id = movieCount + 1;
+  const id = movieCount + 1;
   const name = req.body.name.trim();
   const image = req.body.image.trim();
-  const genre = req.body.genre.trim();
   const yearReleased = req.body.yearReleased.trim();
+  const genre = req.body.genre.trim();
   const length = req.body.length.trim();
   const rating = req.body.rating.trim();
-
+  const director = req.body.director.trim();
+  const price = req.body.price.trim();
   if (!name) {
     res
       .status(400)
       .render('new', {
-        pageId: 'new', title: 'Create New Movie', movie_id, name, image, genre, yearReleased, length, rating,
+        pageId: 'new', title: 'Create New Movie', id, name, image, genre, yearReleased, length, rating,
       });
   } else {
     db.createMovie({
-      movie_id, name, image, genre, yearReleased, length, rating,
+      id, name, image, genre, yearReleased, length, rating, director, price,
     })
       .then(() => {
         res.redirect(301, '/movies');
@@ -77,47 +79,67 @@ router.post('/new', (req, res, next) => {
   }
 });
 
-
 // Gets one item by ID
 router.get('/movies/:id', (req, res) => {
   db.getAllMovies()
     .then((movies) => {
-      // parseInt(req.params, 10);
-      // console.log(req.params);
-      // res.render('viewMovie', {
-      //   // pageId: 'viewMovie',
-      //   // title: 'Update Movie Info',
-      //   movies,
-      // });
-      const singleMovie = movies.filter((singleMovie) =>{
-        return singleMovie.movie_id == req.params.id;
-
-      })[0]
+      const singleMovie = movies.filter((singleMovie) => {
+        return singleMovie.id == req.params.id;
+      })[0];
       res.render('viewMovie', {
         singleMovie,
-      })
+        pageId: 'viewMovie',
+        title: 'Update Movie Info',
+      });
+    });
+});
+
+// Get Update Page Route
+router.get('/update/:id', (req, res) => {
+  db.getAllMovies()
+    .then((movies) => {
+      const updateMovie = movies.filter((updateMovie) => {
+        return updateMovie.id == req.params.id;
+      })[0];
+      res.render('update', {
+        updateMovie,
+        pageId: 'update',
+        title: 'Update Movie ',
+      });
+    });
+});
+
+// Patch info from update movie page- not working
+router.put('/update/<%= updateMovie.id %>', (req, res, next) => {
+  const id = movieCount + 1;
+  const name = req.body.name.trim();
+  const image = req.body.image.trim();
+  const yearReleased = req.body.yearReleased.trim();
+  const genre = req.body.genre.trim();
+  const length = req.body.length.trim();
+  const rating = req.body.rating.trim();
+  const director = req.body.director.trim();
+  const price = req.body.price.trim();
+  db.createMovie({
+    id, name, image, genre, yearReleased, length, rating, director, price,
+  })
+    .then(() => {
+      res.redirect(301, '/movies');
     })
-  //   .catch(next);
+    .catch(next);
 });
 
-
-// Update movie details UNFINISHED
-router.get('/movies/.id/viewMovie', (req, res) => {
-  // Add code
-  res.render('/viewMovie');
-});
 
 // // Update the movie :id
 // router.patch('/movies/.id/update', (req, res) => {
-//   // Add code
 //   res.render('/movies');
 // });
 
-// Delete a movie UNFINISHED
-router.delete('/movies/.id', (req, res) => {
-  // Add code
-  res.redirect('movies');
-});
+// // Delete a movie UNFINISHED
+// router.delete('/movies/.id', (req, res) => {
+//   // Add code
+//   res.redirect('movies');
+// });
 
 
 module.exports = router;

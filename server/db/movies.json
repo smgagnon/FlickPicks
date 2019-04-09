@@ -1,6 +1,6 @@
 [
   {
-    "movie_id": 1,
+    "id": 1,
     "name": "Mamma Mia!",
     "yearReleased": "2008",
     "length": "108 minutes",
@@ -11,10 +11,10 @@
     "price": "$20.00"
   },
   {
-    "movie_id": 2,
+    "id": 2,
     "name": "Grease",
     "yearReleased": "1978",
-    "lenth": "110 minutes",
+    "length": "110 minutes",
     "genre": "Musical, Romance",
     "director": "Randal Kleiser",
     "rating": "PG-13",
@@ -22,10 +22,10 @@
     "price": "$20.00"
   },
   {
-    "movie_id": 3,
+    "id": 3,
     "name": "Free Solo",
     "yearReleased": "2018",
-    "lenth": "100 minutes",
+    "length": "100 minutes",
     "genre": "Documentary, Sport ",
     "director": "Jimmy Chin, Elizabeth Chai Vasarhelyi",
     "rating": "PG-13",
@@ -33,10 +33,10 @@
     "price": "$30.00"
   },
   {
-    "movie_id": 4,
+    "id": 4,
     "name": "Bohemian Rhapsody",
     "yearReleased": "2018",
-    "lenth": "134 minutes",
+    "length": "134 minutes",
     "genre": "Biography, Drama, Music",
     "director": "Bryan Singer",
     "rating": "PG-13",
@@ -44,10 +44,10 @@
     "price": "$30.00"
   },
   {
-    "movie_id": 5,
+    "id": 5,
     "name": "Green Book",
     "yearReleased": "2018",
-    "lenth": "130 minutes",
+    "length": "130 minutes",
     "genre": "Biography, Comedy, Drama ",
     "director": "Peter Farrelly",
     "rating": "PG-13",
@@ -55,10 +55,10 @@
     "price": "$30.00"
   },
   {
-    "movie_id": 6,
+    "id": 6,
     "name": "The Avengers",
     "yearReleased": "2012",
-    "lenth": "143 minutes",
+    "length": "143 minutes",
     "genre": "Action, Adventure, Sci-Fi ",
     "director": "Joss Whedon",
     "rating": "PG-13",
@@ -66,10 +66,10 @@
     "price": "$25.00"
   },
   {
-    "movie_id": 7,
+    "id": 7,
     "name": "Toy Story",
     "yearReleased": "1995",
-    "lenth": "81 minutes",
+    "length": "81 minutes",
     "genre": "Animation, Adventure, Comedy ",
     "director": "John Lasseter",
     "rating": "G",
@@ -77,10 +77,10 @@
     "price": "$20.00"
   },
   {
-    "movie_id": 8,
+    "id": 8,
     "name": "Finding Nemo",
     "yearReleased": "2003",
-    "lenth": "100 minutes",
+    "length": "100 minutes",
     "genre": "Animation, Adventure, Comedy ",
     "director": "Andrew Stanton, Lee Unkrich",
     "rating": "G",
@@ -88,10 +88,10 @@
     "price": "$20.00"
   },
   {
-    "movie_id": 9,
+    "id": 9,
     "name": "Get Out",
     "yearReleased": "2017",
-    "lenth": "104 minutes",
+    "length": "104 minutes",
     "genre": "Horror, Mystery, Thriller ",
     "director": "Jordan Peele",
     "rating": "R",
@@ -99,10 +99,10 @@
     "price": "$20.00"
   },
   {
-    "movie_id": 10,
+    "id": 10,
     "name": "Just Go With It",
     "yearReleased": "2011",
-    "lenth": "117 minutes",
+    "length": "117 minutes",
     "genre": "Comedy, Romance ",
     "director": "Dennis Dugan",
     "rating": "PG-13",
@@ -110,63 +110,69 @@
     "price": "$25.00"
   },
   {
-    "movie_id": 11,
+    "id": 11,
     "name": "Harry Potter and the Sorcerer's Stone ",
     "yearReleased": "2001",
-    "lenth": "152 minutes",
+    "length": "152 minutes",
     "genre": "Adventure, Family, Fantasy",
-    "director": "Chris Columbus",
     "rating": "PG",
     "image": "https://m.media-amazon.com/images/M/MV5BNjQ3NWNlNmQtMTE5ZS00MDdmLTlkZjUtZTBlM2UxMGFiMTU3XkEyXkFqcGdeQXVyNjUwNzk3NDc@._V1_.jpg",
+    "director": "Chris Columbus",
     "price": "$30.00"
   },
   {
+    "id": 12,
     "name": "Pitch Perfect",
     "image": "https://m.media-amazon.com/images/M/MV5BMTcyMTMzNzE5N15BMl5BanBnXkFtZTcwNzg5NjM5Nw@@._V1_SY1000_CR0,0,631,1000_AL_.jpg",
     "genre": "Comedy, Music, Romance",
     "yearReleased": "2012",
     "length": "112",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "director": "Jason Moore",
+    "price": "$25.00"
   },
   {
+    "id": 13,
     "name": "Shazam!",
     "image": "https://m.media-amazon.com/images/M/MV5BYTE0Yjc1NzUtMjFjMC00Y2I3LTg3NGYtNGRlMGJhYThjMTJmXkEyXkFqcGdeQXVyNTI4MzE4MDU@._V1_SY1000_CR0,0,674,1000_AL_.jpg",
     "genre": "Action, Adventure, Comedy",
     "yearReleased": "2019",
     "length": "132 minutes",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "director": "David F. Sandberg",
+    "price": "$35.00"
   },
   {
+    "id": 14,
     "name": "Dumbo",
     "image": "https://m.media-amazon.com/images/M/MV5BNjMxMDE0MDI1Ml5BMl5BanBnXkFtZTgwMzExNTU3NjM@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
     "genre": "Adventure, Family, Fantasy",
     "yearReleased": "2019",
     "length": "112 minutes",
-    "rating": "PG"
+    "rating": "PG",
+    "director": "Tim Burton",
+    "price": "$35.00"
   },
   {
+    "id": 15,
     "name": "Star Wars: Episode VIII - The Last Jedi",
     "image": "https://m.media-amazon.com/images/M/MV5BMjQ1MzcxNjg4N15BMl5BanBnXkFtZTgwNzgwMjY4MzI@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
     "genre": "Action, Adventure, Fantasy",
     "yearReleased": "2017",
     "length": "152 Minutes",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "director": "Rian Johnson",
+    "price": "$25.00"
   },
   {
+    "id": 16,
     "name": "The Lord of the Rings: The Fellowship of the Ring",
     "image": "https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_SY999_CR0,0,673,999_AL_.jpg",
     "genre": "Adventure, Drama, Fantasy",
     "yearReleased": "2001",
     "length": "178 Minutes",
-    "rating": "PG-13"
-  },
-  {
-    "movie_id": 17,
-    "name": "Lawrence of Arabia",
-    "image": "https://i.ebayimg.com/images/g/aLQAAOSwLnBXUVTZ/s-l300.jpg",
-    "genre": "drama",
-    "yearReleased": "1963",
-    "length": "4 hours",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "director": "Peter Jackson",
+    "price": "$25.00"
   }
 ]

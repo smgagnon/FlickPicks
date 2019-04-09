@@ -3,7 +3,7 @@
 <head>
 
 </head>
-<header class="jumbotron">
+<header>
   <% include partials/header %>
     <div class="container">
         <h1>Welcome to Flick Picks</h1>
@@ -30,12 +30,9 @@
                   src="<%= movie.image %>">
               <div class="caption">
                   <h4><%= movie.name %></h4>
-                  <p>
-                      <%=movie.yearReleased%>
-                      <%=movie.genre%>
-                      <%=movie.length%>
-                      <%=movie.rating%>
-                    <a href="/movies/<%= movie.movie_id %>" class="btn btn primary">More Info</a>
+                  <p>Genre: <%=movie.genre%></p>
+                  <p>Length: <%=movie.length%></p>
+                  <a href="/movies/<%= movie.id %>" class="btn btn primary">More Info</a>
                   </p>
                  </div>
                 </div>

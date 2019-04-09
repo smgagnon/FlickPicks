@@ -1,30 +1,52 @@
-<% include partials/header %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+</head>
+<header>
+  <% include partials/header %>
+</header>
 <div class="container">
     <div class="row">
         <h1 style="text-align:center;">Add a New Movie</h1>
         <div style="width: 30%; margin:25px auto;">
         <form action="/new" method="post">
             <div class="form-group">
-              <input class="form-control" type="text" name="name" placeholder="name">
+                <label>Movie Title:</label>
+                <input class="form-control" type="text" name="name" placeholder="name">
             </div>
             <div class="form-group">
+                <label>Movie Poster:</label>
                 <input class="form-control" type="text" name="image" placeholder="image url">
             </div>
             <div class="form-group">
-                <input class="form-control" type="text" name="yearReleased" placeholder="year released">
+                <label>Year Released:</label>
+                <input class="form-control" type="text" name="yearReleased" placeholder="year">
             </div>
             <div class="form-group">
+                <label>Genre of Movie:</label>
                 <input class="form-control" type="text" name="genre" placeholder="genre">
             </div>
             <div class="form-group">
+                <label>Length:</label>
                 <input class="form-control" type="text" name="length" placeholder="length">
             </div>
             <div class="form-group">
+                <label>Rating:</label>
                 <input class="form-control" type="text" name="rating" placeholder="rating">
+            </div>
+            <div class="form-group">
+                <label>Director:</label>
+                <input class="form-control" type="text" name="director" placeholder="director">
+            </div>
+            <div class="form-group">
+                <label>Price:</label>
+                <input class="form-control" type="text" name="price" placeholder="price">
             </div>
             <div class="form-group">
                 <button type= "submit" class="btn btn-lg btn-primary btn-block">Submit!</button>
             </div>
+
         </form>
         <a href= "/movies">Go Back</a>
     </div>
