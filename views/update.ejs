@@ -10,7 +10,7 @@
     <div class="row">
         <h1 style="text-align:center;">Update Movie Info!</h1>
         <div style="width: 30%; margin:25px auto;">
-        <form action="/update/<%= updateMovie.id %>"  method="put">
+        <form action="/movies/<%= updateMovie.id %>?_method=PUT"  method="POST">
             <label>Movie Name:</label>
             <div class="form-group">
                 <input class="form-control" type="text" name="name" value="<%=updateMovie.name%>">

@@ -3,12 +3,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('./db');
+let methodOverride = require('method-override');
 
 const router = express.Router();
 
 let movieCount;
 
-router.use(bodyParser.urlencoded({ extended: false }));
+router.use(bodyParser.urlencoded({ extended: true }));
+router.use(methodOverride('_method'));
 
 // Load Landing page
 router.get('/', (req, res) => {
@@ -52,7 +54,7 @@ router.get('/movies/new', (req, res) => {
 });
 
 // Posts the new movie to the movie page
-router.post('/new', (req, res, next) => {
+router.post('/movies', (req, res, next) => {
   const id = movieCount + 1;
   const name = req.body.name.trim();
   const image = req.body.image.trim();
@@ -79,7 +81,7 @@ router.post('/new', (req, res, next) => {
   }
 });
 
-// Gets one item by ID
+// Gets one item by ID - displays a single movie on a new page
 router.get('/movies/:id', (req, res) => {
   db.getAllMovies()
     .then((movies) => {
@@ -94,8 +96,8 @@ router.get('/movies/:id', (req, res) => {
     });
 });
 
-// Get Update Page Route
-router.get('/update/:id', (req, res) => {
+// Route for getting the Update Page
+router.get('/movies/:id/update', (req, res) => {
   db.getAllMovies()
     .then((movies) => {
       const updateMovie = movies.filter((updateMovie) => {
@@ -110,21 +112,21 @@ router.get('/update/:id', (req, res) => {
 });
 
 // Patch info from update movie page- not working
-router.put('/update/<%= updateMovie.id %>', (req, res, next) => {
+router.put('/movies/:id', (req, res, next) => {
   const id = movieCount + 1;
-  const name = req.body.name.trim();
-  const image = req.body.image.trim();
-  const yearReleased = req.body.yearReleased.trim();
-  const genre = req.body.genre.trim();
-  const length = req.body.length.trim();
-  const rating = req.body.rating.trim();
-  const director = req.body.director.trim();
-  const price = req.body.price.trim();
+  const name = req.body.name;
+  const image = req.body.image;
+  const yearReleased = req.body.yearReleased;
+  const genre = req.body.genre;
+  const length = req.body.length;
+  const rating = req.body.rating;
+  const director = req.body.director;
+  const price = req.body.price;
   db.createMovie({
     id, name, image, genre, yearReleased, length, rating, director, price,
   })
     .then(() => {
-      res.redirect(301, '/movies');
+      res.redirect(301, `/movies/${req.params.id}`);
     })
     .catch(next);
 });
