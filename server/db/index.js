@@ -83,9 +83,29 @@ async function createMovie(movie) {
     });
 }
 
+// Updates the original movie with the new data entered in the update form
+async function updateMovie(name, updatedMovie) {
+  return readMovies()
+    .then((allMovies) => {
+      return allMovies.map((movie) => {
+        if (movie.name === name) {
+          return updatedMovie;
+        } else {
+          return movie;
+        }
+      });
+    })
+    .then((movie) => {
+      return writeMovies(movie);
+    });
+}
+
+// }
+
 module.exports = {
   getAllMovies: readMovies,
   getAllTitles,
   searchMovies,
   createMovie,
+  updateMovie: updateMovie,
 };

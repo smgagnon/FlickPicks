@@ -177,13 +177,11 @@
   },
   {
     "id": 17,
-    "name": "Daisy Mountain",
-    "image": "",
-    "genre": "",
-    "yearReleased": "",
-    "length": "",
-    "rating": "",
-    "director": "",
-    "price": ""
+    "name": "Grease2",
+    "image": "https://m.media-amazon.com/images/M/MV5BZmUyMDEyOTgtZmUwOS00NTdkLThlNzctNTM1ODQ4M2VhMjdhXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY999_CR0,0,634,999_AL_.jpg",
+    "genre": "Musical, Romance",
+    "yearReleased": "1978",
+    "length": "110 minutes",
+    "rating": "PG-13"
   }
 ]

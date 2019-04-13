@@ -2,8 +2,8 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
 const db = require('./db');
-let methodOverride = require('method-override');
 
 const router = express.Router();
 
@@ -27,7 +27,11 @@ router.get('/register', (req, res) => {
 
 // Login Route
 router.get('/login', (req, res) => {
-  res.render('./login');
+  try {
+    res.render('./login');
+  } catch (next) {
+    res.render('error');
+  }
 });
 
 // Render the movies page
@@ -50,7 +54,8 @@ router.get('/movies/new', (req, res) => {
     pageId: 'new',
     title: 'Create New Movie',
     name: null,
-  });
+  })
+    .catch(next);
 });
 
 // Posts the new movie to the movie page
@@ -113,20 +118,9 @@ router.get('/movies/:id/update', (req, res) => {
 
 // Patch info from update movie page- not working
 router.put('/movies/:id', (req, res, next) => {
-  const id = movieCount + 1;
-  const name = req.body.name;
-  const image = req.body.image;
-  const yearReleased = req.body.yearReleased;
-  const genre = req.body.genre;
-  const length = req.body.length;
-  const rating = req.body.rating;
-  const director = req.body.director;
-  const price = req.body.price;
-  db.createMovie({
-    id, name, image, genre, yearReleased, length, rating, director, price,
-  })
-    .then(() => {
-      res.redirect(301, `/movies/${req.params.id}`);
+  db.updateMovie(req.params.name, req.body)
+    .then((movies) => {
+      res.redirect(301, `/movies${updateMovie.id}`);
     })
     .catch(next);
 });
