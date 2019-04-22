@@ -8,7 +8,7 @@
 </header>
 <div class="container">
     <div class="row">
-        <h1 style="text-align:center;">Update Movie Info!</h1>
+        <h1 style="text-align:center;">Update <%=updateMovie.name%> Info!</h1>
         <div style="width: 30%; margin:25px auto;">
         <form action="/movies/<%= updateMovie.id %>?_method=PUT"  method="POST">
             <label>Movie Name:</label>

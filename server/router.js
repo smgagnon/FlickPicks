@@ -27,12 +27,13 @@ router.get('/register', (req, res) => {
 
 // Login Route
 router.get('/login', (req, res) => {
-  try {
-    res.render('./login');
-  } catch (next) {
-    res.render('error');
-  }
+  res.render('login', {
+    pageId: 'login',
+    title: 'Login',
+    username: req.session.username,
+  });
 });
+
 
 // Render the movies page
 router.get('/movies', (req, res, next) => {
@@ -116,20 +117,60 @@ router.get('/movies/:id/update', (req, res) => {
     });
 });
 
+// router.put('/movie/:name', (req, res, next) => {
+//   db.updateMovieByName(req.params.name, req.body)
+//     .then((movies) => {
+//       res.render('update', {
+//         pageId: 'update',
+//         title: 'Update',
+//         movies: movies,
+//       });
+//     })
+//     .catch((error) => {
+//       return next(error);
+//     });
+// });
+
+
 // Patch info from update movie page- not working
 router.put('/movies/:id', (req, res, next) => {
-  db.updateMovie(req.params.name, req.body)
-    .then((movies) => {
-      res.redirect(301, `/movies${updateMovie.id}`);
+  const id = movieCount + 1;
+  const name = req.body.name;
+  const image = req.body.image;
+  const yearReleased = req.body.yearReleased;
+  const genre = req.body.genre;
+  const length = req.body.length;
+  const rating = req.body.rating;
+  const director = req.body.director;
+  const price = req.body.price;
+  if (!name) {
+    res
+      .status(400)
+      .render('update', {
+        pageId: 'update', title: 'Update Movie', id, name, image, genre, yearReleased, length, rating,
+      });
+  } else {
+    db.updateMovieByName({
+      id, name, image, genre, yearReleased, length, rating, director, price,
     })
-    .catch(next);
+      .then(() => {
+        res.redirect(301, `/movies/${req.params.id}`);
+      })
+      .catch(next);
+  }
 });
 
 
-// // Update the movie :id
-// router.patch('/movies/.id/update', (req, res) => {
-//   res.render('/movies');
+// router.put('/movies/:id', (req, res, next) => {
+//   db.updateMovie(req.params.id, req.body, function (err, updatedMovie){
+//     if(err){
+//       res.redirect('movies');
+//     } else {
+//       res.redirect('movies/' + req.params.id);
+//     }
+//   });
 // });
+
 
 // // Delete a movie UNFINISHED
 // router.delete('/movies/.id', (req, res) => {
@@ -139,25 +180,3 @@ router.put('/movies/:id', (req, res, next) => {
 
 
 module.exports = router;
-
-
-// // Get data from form and post to movies array
-// router.post('/movies', (req, res) => {
-//   const image = req.body.image;
-//   const name = req.body.name;
-//   const genre = req.body.genre;
-//   const yearReleased = req.body.yearReleased;
-//   const length = req.body.length;
-//   const rating = req.body.rating;
-//   const newMovie = {
-//     name: name,
-//     image: image,
-//     genre: genre,
-//     yearReleased: yearReleased,
-//     length: length,
-//     rating: rating,
-//   };
-//   movies.push(newMovie);
-//   // Redirect back to movies page
-//   res.redirect('/movies');
-// });

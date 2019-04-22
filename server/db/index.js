@@ -84,7 +84,7 @@ async function createMovie(movie) {
 }
 
 // Updates the original movie with the new data entered in the update form
-async function updateMovie(name, updatedMovie) {
+async function updateMovieByName(name, updatedMovie) {
   return readMovies()
     .then((allMovies) => {
       return allMovies.map((movie) => {
@@ -95,11 +95,25 @@ async function updateMovie(name, updatedMovie) {
         }
       });
     })
-    .then((movie) => {
-      return writeMovies(movie);
+    .then((movies) => {
+      return writeMovies(movies);
     });
 }
 
+
+//   return readFile(moviesPath)
+//     .then((allMovies) => {
+//       const updatedAllMovies = [];
+
+//       allMovies.forEach((movie) => {
+//         if (movie.id !== id) {
+//           updatedAllMovies.push(movie.id);
+//         } else {
+//           updatedAllMovies.push(updatedMovie.id);
+//         }
+//       });
+//       return writeMovies(updatedAllMovies);
+//     });
 // }
 
 module.exports = {
@@ -107,5 +121,5 @@ module.exports = {
   getAllTitles,
   searchMovies,
   createMovie,
-  updateMovie: updateMovie,
+  updateMovieByName,
 };
