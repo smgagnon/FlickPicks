@@ -30,7 +30,7 @@ router.get('/login', (req, res) => {
   res.render('login', {
     pageId: 'login',
     title: 'Login',
-    username: req.session.username,
+    //username: req.session.username,
   });
 });
 
@@ -134,7 +134,7 @@ router.get('/movies/:id/update', (req, res) => {
 
 // Patch info from update movie page- not working
 router.put('/movies/:id', (req, res, next) => {
-  const id = movieCount + 1;
+  const id = parseInt(req.params.id, 10);
   const name = req.body.name;
   const image = req.body.image;
   const yearReleased = req.body.yearReleased;
@@ -143,21 +143,22 @@ router.put('/movies/:id', (req, res, next) => {
   const rating = req.body.rating;
   const director = req.body.director;
   const price = req.body.price;
-  if (!name) {
-    res
-      .status(400)
-      .render('update', {
-        pageId: 'update', title: 'Update Movie', id, name, image, genre, yearReleased, length, rating,
-      });
-  } else {
-    db.updateMovieByName({
-      id, name, image, genre, yearReleased, length, rating, director, price,
+  db
+    .updateMovieByName({
+      id,
+      name,
+      image,
+      genre,
+      yearReleased,
+      length,
+      rating,
+      director,
+      price,
     })
-      .then(() => {
-        res.redirect(301, `/movies/${req.params.id}`);
-      })
-      .catch(next);
-  }
+    .then(() => {
+      res.redirect(301, `/movies/${req.params.id}`);
+    })
+    .catch(next);
 });
 
 

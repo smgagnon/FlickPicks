@@ -84,21 +84,39 @@ async function createMovie(movie) {
 }
 
 // Updates the original movie with the new data entered in the update form
-async function updateMovieByName(name, updatedMovie) {
+async function updateMovieByName(query) {
+  console.log(query);
   return readMovies()
-    .then((allMovies) => {
-      return allMovies.map((movie) => {
-        if (movie.name === name) {
-          return updatedMovie;
-        } else {
-          return movie;
-        }
-      });
-    })
     .then((movies) => {
-      return writeMovies(movies);
+    const updateMovie = movies.filter((updateMovie) => {
+      return updateMovie.id == query.id;
+      })[0];
+
+      if (updateMovie.id == query.id) {
+        console.log(updateMovie);
+        // put code here to push update to the db
+        return updateMovie;
+      } else {
+        return movie;
+      }
+    })
+    .then((updateMovie) => {
+      return writeMovies(updateMovie);
     });
 }
+//     .then((allMovies) => {
+//       return allMovies.map((movie) => {
+//         if (movie.name === name) {
+//           return updatedMovie;
+//         } else {
+//           return movie;
+//         }
+//       });
+//     })
+//     .then((movies) => {
+//       return writeMovies(movies);
+//     });
+// }
 
 
 //   return readFile(moviesPath)
