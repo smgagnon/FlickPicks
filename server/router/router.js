@@ -1,52 +1,66 @@
 'use strict';
 
 const express = require('express');
-const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
-const db = require('./db');
+// const movieRoutes = require('./movies');
+const loginRoutes = require('./login');
+const logoutRoutes = require('./logout');
+const registerRoutes = require('./register');
+const db = require('../db');
 
 const router = express.Router();
 
 let movieCount;
 
-router.use(bodyParser.urlencoded({ extended: true }));
+router.use(express.urlencoded({ extended: true }));
 router.use(methodOverride('_method'));
 
+
+///// Authentication /////////
 // Load Landing page
 router.get('/', (req, res) => {
   res.render('landing', {
     pageId: 'landing',
     title: 'Home',
+    username: req.session.username,
   });
 });
 
-// Register route
-router.get('/register', (req, res) => {
-  res.render('./register');
-});
+// Movies page
+//router.get('/movies', movieRoutes.get);
 
-// Login Route
-router.get('/login', (req, res) => {
-  res.render('login', {
-    pageId: 'login',
-    title: 'Login',
-    //username: req.session.username,
-  });
-});
+// Register page
+router.get('/register', registerRoutes.get);
+router.post('/register', registerRoutes.post);
 
+// Login Page
+router.get('/login', loginRoutes.get);
+router.post('/login', loginRoutes.post);
+
+// Logout
+router.get('/logout', logoutRoutes.get);
+
+
+///// Movies /////////
 
 // Render the movies page
 router.get('/movies', (req, res, next) => {
-  db.getAllMovies()
+  if (!req.session.username) {
+    res
+      .status(403)
+      .render('error');
+  } else {
+    db.getAllMovies()
     .then((movies) => {
       res.render('movies', {
         pageId: 'movies',
         title: 'Movies',
+        username: req.session.username,
         movies,
       });
       movieCount = movies.length;
     })
-    .catch(next);
+  }
 });
 
 // Render the create new movie page
@@ -54,9 +68,9 @@ router.get('/movies/new', (req, res) => {
   res.render('new', {
     pageId: 'new',
     title: 'Create New Movie',
+    username: req.session.username,
     name: null,
   })
-    .catch(next);
 });
 
 // Posts the new movie to the movie page
@@ -73,17 +87,14 @@ router.post('/movies', (req, res, next) => {
   if (!name) {
     res
       .status(400)
-      .render('new', {
-        pageId: 'new', title: 'Create New Movie', id, name, image, genre, yearReleased, length, rating,
-      });
+      .redirect('/new');
   } else {
     db.createMovie({
       id, name, image, genre, yearReleased, length, rating, director, price,
     })
       .then(() => {
         res.redirect(301, '/movies');
-      })
-      .catch(next);
+      });
   }
 });
 
@@ -98,6 +109,7 @@ router.get('/movies/:id', (req, res) => {
         singleMovie,
         pageId: 'viewMovie',
         title: 'Update Movie Info',
+        username: req.session.username,
       });
     });
 });
@@ -113,6 +125,7 @@ router.get('/movies/:id/update', (req, res) => {
         updateMovie,
         pageId: 'update',
         title: 'Update Movie ',
+        username: req.session.username,
       });
     });
 });
@@ -173,11 +186,13 @@ router.put('/movies/:id', (req, res, next) => {
 // });
 
 
-// // Delete a movie UNFINISHED
-// router.delete('/movies/.id', (req, res) => {
-//   // Add code
-//   res.redirect('movies');
-// });
-
+// Delete a movie
+router.delete('/movies/:id', (req, res, next) => {
+  db.deleteMovieByName(req.params.name)
+    .then(() => {
+      res.redirect(301, '/movies');
+    })
+    .catch(next);
+});
 
 module.exports = router;

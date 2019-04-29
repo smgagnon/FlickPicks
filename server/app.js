@@ -1,20 +1,20 @@
 'use strict';
 
+require('dotenv').config();
 const express = require('express');
 const session = require('express-session');
-const bodyParser = require('body-parser');
-const router = require('./router');
+const router = require('./router/router');
 const defaultSessionValues = require('./middleware/default-session-values');
+const authentication = require('./middleware/authentication');
 const defaultErrorHandler = require('./middleware/default-error-handler');
 
 const app = express();
 
 app.set('view engine', 'ejs');
 
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/static', express.static('static'));
-app.use(router);
-app.use(defaultErrorHandler);
+
+app.use(express.urlencoded({ extended: true }));
 
 app.use(session({
   secret: process.env.SESSION_SECRET, // Used to cryptographically "sign" the session ID
@@ -30,7 +30,18 @@ app.use(session({
 // This must come after the session middleware to ensure its values are set properly
 app.use(defaultSessionValues);
 
+// Apply router
+app.use(router);
+
+// Ensure user is logged in
+app.use(authentication);
+
+// Default error handling for serving a page for 500 errors
+// This is what calls to the `next` function in our routes calls
+app.use(defaultErrorHandler);
+
+
 // Start Server
-app.listen(3000, () => {
+app.listen(process.env.HTTP_PORT, () => {
   console.log('The Flick Picks Server Has Started');
 });

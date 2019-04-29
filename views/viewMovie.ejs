@@ -30,7 +30,8 @@
   <p>Price: <%=singleMovie.price%></p>
 </div>
 <a href="/movies/<%= singleMovie.id %>/update">Update Info</a>
-
+<form action="/movies/<%= singleMovie.id %>?_method=DELETE" method="POST">
+  <button type="submit" class="btn btn-outline-danger">Delete Movie</button>
 </div>
 
 
