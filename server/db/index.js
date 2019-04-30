@@ -160,97 +160,47 @@ async function createMovie(movie) {
 }
 // Updates the original movie with the new data entered in the update form
 async function updateMovieByName(query) {
-  console.log(query);
-  return readMovies()
-    .then((movies) => {
-    const updateMovie = movies.filter((updateMovie) => {
-      return updateMovie.id == query.id;
-      })[0];
-
-      if (updateMovie.id == query.id) {
-        console.log(updateMovie);
-        // put code here to push update to the db
-        return query;
+  return readMovies().then((movies) => {
+    const newArray = [];
+    movies.forEach((moviesDb) => {
+      if (moviesDb.id == query.id) {
+        const newUpdatedMovie = query;
+        newArray.push(newUpdatedMovie);
       } else {
-        return movie;
+        newArray.push(moviesDb);
       }
-    })
-    .then((query) => {
-      return writeMovies(query);
     });
+    return writeMovies(newArray);
+  });
 }
 
 
-// async function updateMovieByName(id, updatedMovie) {
-//   return readMovies()
-//     .then((allMovies) => {
-//           return allMovies.map((movie) => {
-//             if (movie.id === id) {
-//               console.log(movie.id);
-//               return updatedMovie;
-//             } else {
-//               return movie;
-//             }
-//           });
-//         })
-//         .then((movies) => {
-//           return writeMovies(movies);
-//         });
-//     }
-
-
-// async function updateMovieByName(query) {
-//   return readMovies()
-//     .then((movies) => {
-//     const updateMovie = movies.filter((updateMovie) => {
-//       return updateMovie.id == query.id;
-//       })[0];
-
-//       if (updateMovie.id == query.id) {
-//         console.log(updateMovie);
-//         console.log(query);
-//         // put code here to push update to the db
-//           return query;
-//       } else {
-//         return movie;
-//       }
-//     })
-//     .then((query) => {
-//       //console.log(movies);
-//       return readMovies(query);
-//       // movies.splice(0, 1, query);
-//       // return writeMovies(query);
+// async function deleteMovieByName() {
+//   return readMovies().then((movies) => {
+//     const newArray = [];
+//     movies.forEach((moviesAll) => {
+//       newArray.push(moviesAll);
+//       console.log(moviesAll);
+//     });
+//     return writeMovies(newArray);
 //   });
 // }
-//     .then((allMovies) => {
-//       return allMovies.map((movie) => {
-//         if (movie.name === name) {
-//           return updatedMovie;
-//         } else {
-//           return movie;
-//         }
-//       });
-//     })
-//     .then((movies) => {
-//       return writeMovies(movies);
-//     });
-// }
 
-
-//   return readFile(moviesPath)
-//     .then((allMovies) => {
-//       const updatedAllMovies = [];
-
-//       allMovies.forEach((movie) => {
-//         if (movie.id !== id) {
-//           updatedAllMovies.push(movie.id);
-//         } else {
-//           updatedAllMovies.push(updatedMovie.id);
-//         }
-//       });
-//       return writeMovies(updatedAllMovies);
-//     });
-// }
+async function deleteMovieByName(query) {
+  return readMovies().then((movies) => {
+    const newArray = [];
+    movies.forEach((moviesAll) => {
+      if (moviesAll.id == query.id) {
+        console.log(moviesAll);
+      } else {
+        const deleteMovie = moviesAll;
+        newArray.push(deleteMovie);
+        console.log(deleteMovie);
+      }
+    });
+    return writeMovies(newArray);
+  });
+}
 
 // async function deleteMovieByName(query) {
 //   return readMovies()
@@ -267,19 +217,18 @@ async function updateMovieByName(query) {
 // });
 // }
 
-async function deleteMovieByName(query) {
-  console.log(query);
-  return readMovies()
-  .then((movies) => {
-    return movies.filter((updateMovie) => {
-      console.log(updateMovie);
+//   console.log(query);
+//   return readMovies()
+//   .then((movies) => {
+//     return movies.filter((updateMovie) => {
+//       console.log(updateMovie);
 
-    });
-  })
-  .then((movies) => {
-    return writeMovies(movies);
- });
-}
+//     });
+//   })
+//   .then((movies) => {
+//     return writeMovies(movies);
+//  });
+// }
 
 
 //   console.log(movie);

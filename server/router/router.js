@@ -2,7 +2,6 @@
 
 const express = require('express');
 const methodOverride = require('method-override');
-// const movieRoutes = require('./movies');
 const loginRoutes = require('./login');
 const logoutRoutes = require('./logout');
 const registerRoutes = require('./register');
@@ -25,9 +24,6 @@ router.get('/', (req, res) => {
     username: req.session.username,
   });
 });
-
-// Movies page
-//router.get('/movies', movieRoutes.get);
 
 // Register page
 router.get('/register', registerRoutes.get);
@@ -130,21 +126,6 @@ router.get('/movies/:id/update', (req, res) => {
     });
 });
 
-// router.put('/movie/:name', (req, res, next) => {
-//   db.updateMovieByName(req.params.name, req.body)
-//     .then((movies) => {
-//       res.render('update', {
-//         pageId: 'update',
-//         title: 'Update',
-//         movies: movies,
-//       });
-//     })
-//     .catch((error) => {
-//       return next(error);
-//     });
-// });
-
-
 // Patch info from update movie page- not working
 router.put('/movies/:id', (req, res, next) => {
   const id = parseInt(req.params.id, 10);
@@ -174,21 +155,29 @@ router.put('/movies/:id', (req, res, next) => {
     .catch(next);
 });
 
-
-// router.put('/movies/:id', (req, res, next) => {
-//   db.updateMovie(req.params.id, req.body, function (err, updatedMovie){
-//     if(err){
-//       res.redirect('movies');
-//     } else {
-//       res.redirect('movies/' + req.params.id);
-//     }
-//   });
-// });
-
-
 // Delete a movie
 router.delete('/movies/:id', (req, res, next) => {
-  db.deleteMovieByName(req.params.name)
+  const id = parseInt(req.params.id, 10);
+  const name = req.body.name;
+  const image = req.body.image;
+  const yearReleased = req.body.yearReleased;
+  const genre = req.body.genre;
+  const length = req.body.length;
+  const rating = req.body.rating;
+  const director = req.body.director;
+  const price = req.body.price;
+  db
+    .deleteMovieByName({
+      id,
+      name,
+      image,
+      genre,
+      yearReleased,
+      length,
+      rating,
+      director,
+      price,
+    })
     .then(() => {
       res.redirect(301, '/movies');
     })

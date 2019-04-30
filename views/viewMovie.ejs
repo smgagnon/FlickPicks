@@ -29,7 +29,7 @@
   <p>Director: <%=singleMovie.director%></p>
   <p>Price: <%=singleMovie.price%></p>
 </div>
-<a href="/movies/<%= singleMovie.id %>/update">Update Info</a>
+<a href="/movies/<%= singleMovie.id %>/update" class="btn btn-outline-warning">Update Info</a>
 <form action="/movies/<%= singleMovie.id %>?_method=DELETE" method="POST">
   <button type="submit" class="btn btn-outline-danger">Delete Movie</button>
 </div>

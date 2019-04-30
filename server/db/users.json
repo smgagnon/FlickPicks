@@ -22,5 +22,13 @@
   {
     "username": "testing3",
     "password": "$argon2i$v=19$m=4096,t=3,p=1$xHtJpBIDKcR1sAsjLUtDvw$RyPXXzlAlXbL0N9kxwVpOv+h3D2xrYCRUX2zYQQfUvw"
+  },
+  {
+    "username": "steph",
+    "password": "$argon2i$v=19$m=4096,t=3,p=1$ElS2lXMBl6jI1PUZkJEgHg$AansYEgSXWQxAMW+siDsqZkfd09dWyTp0HW85vujrX8"
+  },
+  {
+    "username": "1",
+    "password": "$argon2i$v=19$m=4096,t=3,p=1$gHE0YzJ/xUectcNS5z5wsw$dt8BDhnj41uDbVy0vQHZ9LFx1zv79clFbIewbiINB2o"
   }
 ]

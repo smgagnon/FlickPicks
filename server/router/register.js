@@ -28,7 +28,7 @@ function postRegisterRoute(req, res, next) {
       // Check if form values are valid
       let formErrors = {
         username: (!usernameExists && req.body.username) ? null : 'Invalid username',
-        password: (req.body.password && req.body.password.length >= 6) ? null : 'Invalid password',
+        password: (req.body.password && req.body.password.length >= 1) ? null : 'Invalid password',
       };
 
       // If there are any errors do not register the user
