@@ -10,7 +10,7 @@ const writeFile = util.promisify(fs.writeFile);
 const moviesPath = path.resolve('server/db/movies.json');
 const userDbPath = path.resolve('server/db/users.json');
 
-//////////AUTHENTICATION/////////
+// //////// AUTHENTICATION /////////
 
 // Reads the file `users.json` and parses its JSON
 function readUsers() {
@@ -20,37 +20,26 @@ function readUsers() {
     });
 }
 
-
 // Writes to the `users.json` file
 function writeUsers(users) {
   return writeFile(userDbPath, JSON.stringify(users, null, 2));
 }
 
-/**
- * Determines if a user with a particular username already exists or not
- * @param {string} username
- * @returns {Promise<boolean>} whether a user exists or not
- */
+// Determines if a user with a particular username already exists or not
 function usernameExists(username) {
   return readUsers()
     .then((users) => {
       let exists = false;
-
       users.forEach((user) => {
         if (user.username === username) {
           exists = true;
         }
       });
-
       return exists;
     });
 }
 
-/**
- * Adds a user to the database
- * @param {object} user
- * @returns {Promise<undefined>}
- */
+// Adds a user to the database
 function addUser(user) {
   return readUsers()
     .then((users) => {
@@ -58,32 +47,24 @@ function addUser(user) {
     });
 }
 
-/**
- * Get user password hash
- * @param {string} username
- * @returns {Promise<string>}
- */
+// Get user password hash
 function getUserPasswordHash(username) {
   return readUsers()
     .then((users) => {
       let match;
-
       users.forEach((user) => {
         if (user.username === username) {
           match = user;
         }
       });
-
       if (!match) {
         throw new Error('User does not exist.');
       }
-
       return match.password;
     });
 }
 
-
-//////////MOVIES////////////////
+// //////// MOVIES ////////////////
 
 // Reads and returns contents of movies.json
 async function readMovies() {
@@ -97,21 +78,6 @@ async function readMovies() {
 async function writeMovies(movies) {
   const json = JSON.stringify(movies, null, 2);
   return writeFile(moviesPath, json);
-}
-
-// Gets a list of each unique movie
-async function getAllTitles() {
-  return readMovies()
-    .then((movies) => {
-      const names = [];
-      movies.forEach((movie) => {
-        if (!names.includes(movie.name)) {
-          names.push(movie.name);
-        }
-      });
-      return names;
-
-    });
 }
 
 // Gets a filtered list of all movies that meet all search conditions
@@ -144,7 +110,6 @@ async function createMovie(movie) {
   if (!movie.name || typeof movie.name !== 'string') {
     throw new Error('Title does not exist.');
   }
-
   return readMovies()
     .then((movies) => {
     // Ensures name is unique
@@ -158,6 +123,7 @@ async function createMovie(movie) {
       return writeMovies(movies);
     });
 }
+
 // Updates the original movie with the new data entered in the update form
 async function updateMovieByName(query) {
   return readMovies().then((movies) => {
@@ -174,18 +140,7 @@ async function updateMovieByName(query) {
   });
 }
 
-
-// async function deleteMovieByName() {
-//   return readMovies().then((movies) => {
-//     const newArray = [];
-//     movies.forEach((moviesAll) => {
-//       newArray.push(moviesAll);
-//       console.log(moviesAll);
-//     });
-//     return writeMovies(newArray);
-//   });
-// }
-
+// Delete's seleted movie and rewrites the database
 async function deleteMovieByName(query) {
   return readMovies().then((movies) => {
     const newArray = [];
@@ -202,56 +157,8 @@ async function deleteMovieByName(query) {
   });
 }
 
-// async function deleteMovieByName(query) {
-//   return readMovies()
-// .then((movies) => {
-//   const updateMovie = movies.filter((updateMovie) => {
-//     return updateMovie.id == query.id;
-//   })[0];
-//   if (updateMovie.id == query.id) {
-//     console.log(updateMovie);
-//     return writeMovies(movies);
-//   } else {
-//     return movie;
-//   }
-// });
-// }
-
-//   console.log(query);
-//   return readMovies()
-//   .then((movies) => {
-//     return movies.filter((updateMovie) => {
-//       console.log(updateMovie);
-
-//     });
-//   })
-//   .then((movies) => {
-//     return writeMovies(movies);
-//  });
-// }
-
-
-//   console.log(movie);
-//   return readMovies()
-//     .then((movies) => {
-//       const singleMovie = movies.filter((singleMovie) => {
-//         return singleMovie.id == movie.id;
-//       })[0];
-//       console.log(singleMovie);
-//     })
-//     .then((movies) => {
-//       return writeMovies(movies);
-//     });
-// }
-
-// .then((allMovies) => {
-//   return allMovies.filter((movie) => {
-//     console.log(movie);
-//     return movie.name !== name;
-
 module.exports = {
   getAllMovies: readMovies,
-  getAllTitles,
   searchMovies,
   createMovie,
   updateMovieByName: updateMovieByName,

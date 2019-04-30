@@ -15,7 +15,7 @@ router.use(express.urlencoded({ extended: true }));
 router.use(methodOverride('_method'));
 
 
-///// Authentication /////////
+// /// Authentication /////////
 // Load Landing page
 router.get('/', (req, res) => {
   res.render('landing', {
@@ -37,25 +37,25 @@ router.post('/login', loginRoutes.post);
 router.get('/logout', logoutRoutes.get);
 
 
-///// Movies /////////
+// /// Movies /////////
 
 // Render the movies page
-router.get('/movies', (req, res, next) => {
+router.get('/movies', (req, res) => {
   if (!req.session.username) {
     res
       .status(403)
       .render('error');
   } else {
     db.getAllMovies()
-    .then((movies) => {
-      res.render('movies', {
-        pageId: 'movies',
-        title: 'Movies',
-        username: req.session.username,
-        movies,
+      .then((movies) => {
+        res.render('movies', {
+          pageId: 'movies',
+          title: 'Movies',
+          username: req.session.username,
+          movies,
+        });
+        movieCount = movies.length;
       });
-      movieCount = movies.length;
-    })
   }
 });
 
@@ -66,11 +66,11 @@ router.get('/movies/new', (req, res) => {
     title: 'Create New Movie',
     username: req.session.username,
     name: null,
-  })
+  });
 });
 
 // Posts the new movie to the movie page
-router.post('/movies', (req, res, next) => {
+router.post('/movies', (req, res) => {
   const id = movieCount + 1;
   const name = req.body.name.trim();
   const image = req.body.image.trim();

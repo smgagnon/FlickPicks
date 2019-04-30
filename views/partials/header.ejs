@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
+    <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
         <title>FlickPicks</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
     </head>
@@ -9,12 +11,12 @@
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="/movies">FlickPicks</a>
+                    <a class="navbar-brand" href="/movies">Flick Picks</a>
             </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li class="navbar-brand"> Welcome, <%= username %></li>
-                      <li><a href="/logout">Logout</a></li>
+                      <li><a class="navbar-brand" href="/logout">Logout</a></li>
                     </ul>
                 </div>
             </div>
@@ -25,11 +27,11 @@
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="/">FlickPicks</a>
+                    <a class="navbar-brand" href="/">Flick Picks</a>
             </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                          <li><a href="/login">Login</a></li>
+                          <li><a class="navbar-brand" href="/login">Login</a></li>
                     </ul>
                 </div>
             </div>

@@ -1,20 +1,14 @@
-<!doctype html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Flick Picks</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
-  </head>
-  <body>
+<head>
+    <link href="/static/custom.css" rel="stylesheet" type="text/css">
+</head>
 <% include partials/header %>
+<header class="jumbotron">
 <div class="container">
-    <header class="jumbotron">
-        <div class="container">
-            <h1>Flick Picks</h1>
-            <p>One stop shop for all things film</p>
+    <h1>Flick Picks</h1>
+    <p>One stop shop for all things film</p>
+    <button type="button" class="btn btn-outline-dark"><a href="/register">Create an Account!</a></button>
+    <button type="button" class="btn btn-outline-dark"><a href="/login">Login!</a></button>
+  </div>
+</div>
+</header>
 
-
-<button type="button" class="btn btn-outline-dark"><a href="/register">Create an Account!</a></button>
-    </body>
-<% include partials/footer %>

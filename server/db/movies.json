@@ -13,23 +13,23 @@
   {
     "id": 2,
     "name": "Grease",
+    "image": "https://m.media-amazon.com/images/M/MV5BZmUyMDEyOTgtZmUwOS00NTdkLThlNzctNTM1ODQ4M2VhMjdhXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY999_CR0,0,634,999_AL_.jpg",
+    "genre": "Musical, Romance",
     "yearReleased": "1978",
     "length": "110 minutes",
-    "genre": "Musical, Romance",
-    "director": "Randal Kleiser",
     "rating": "PG-13",
-    "image": "https://m.media-amazon.com/images/M/MV5BZmUyMDEyOTgtZmUwOS00NTdkLThlNzctNTM1ODQ4M2VhMjdhXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY999_CR0,0,634,999_AL_.jpg",
+    "director": "Randal Kleiser",
     "price": "$20.00"
   },
   {
     "id": 3,
-    "name": "Free Solo",
+    "name": "Free Solo2",
+    "image": "https://m.media-amazon.com/images/M/MV5BMjMwYjcwNWQtNTQ5YS00MzVlLTkxYzMtNDIwZWIxZTE4Zjg2XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SY1000_CR0,0,666,1000_AL_.jpg",
+    "genre": "Documentary, Sport ",
     "yearReleased": "2018",
     "length": "100 minutes",
-    "genre": "Documentary, Sport ",
-    "director": "Jimmy Chin, Elizabeth Chai Vasarhelyi",
     "rating": "PG-13",
-    "image": "https://m.media-amazon.com/images/M/MV5BMjMwYjcwNWQtNTQ5YS00MzVlLTkxYzMtNDIwZWIxZTE4Zjg2XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SY1000_CR0,0,666,1000_AL_.jpg",
+    "director": "Jimmy Chin, Elizabeth Chai Vasarhelyi",
     "price": "$30.00"
   },
   {
