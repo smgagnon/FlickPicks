@@ -98,9 +98,9 @@ router.post('/movies', (req, res) => {
 router.get('/movies/:id', (req, res) => {
   db.getAllMovies()
     .then((movies) => {
-      const singleMovie = movies.filter((singleMovie) => {
+      const singleMovie = movies.find((singleMovie) => {
         return singleMovie.id == req.params.id;
-      })[0];
+      });
       res.render('viewMovie', {
         singleMovie,
         pageId: 'viewMovie',
@@ -114,9 +114,9 @@ router.get('/movies/:id', (req, res) => {
 router.get('/movies/:id/update', (req, res) => {
   db.getAllMovies()
     .then((movies) => {
-      const updateMovie = movies.filter((updateMovie) => {
+      const updateMovie = movies.find((updateMovie) => {
         return updateMovie.id == req.params.id;
-      })[0];
+      });
       res.render('update', {
         updateMovie,
         pageId: 'update',
