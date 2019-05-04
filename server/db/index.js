@@ -129,7 +129,7 @@ async function updateMovieByName(query) {
   return readMovies().then((movies) => {
     const newArray = [];
     movies.forEach((moviesDb) => {
-      if (moviesDb.id == query.id) {
+      if (moviesDb.id === query.id) {
         const newUpdatedMovie = query;
         newArray.push(newUpdatedMovie);
       } else {
@@ -145,7 +145,7 @@ async function deleteMovieByName(query) {
   return readMovies().then((movies) => {
     const newArray = [];
     movies.forEach((moviesAll) => {
-      if (moviesAll.id == query.id) {
+      if (moviesAll.id === query.id) {
         console.log(moviesAll);
       } else {
         const deleteMovie = moviesAll;

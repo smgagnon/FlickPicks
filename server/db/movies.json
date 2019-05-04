@@ -2,12 +2,12 @@
   {
     "id": 1,
     "name": "Mamma Mia!",
+    "image": "https://m.media-amazon.com/images/M/MV5BMTA2MDU0MjM0MzReQTJeQWpwZ15BbWU3MDYwNzgwNzE@._V1_.jpg",
+    "genre": "Comedy, Musical, Romance",
     "yearReleased": "2008",
     "length": "108 minutes",
-    "genre": "Comedy, Musical, Romance",
-    "director": "Phyllida Lloyd",
     "rating": "PG-13",
-    "image": "https://m.media-amazon.com/images/M/MV5BMTA2MDU0MjM0MzReQTJeQWpwZ15BbWU3MDYwNzgwNzE@._V1_.jpg",
+    "director": "Phyllida Lloyd",
     "price": "$20.00"
   },
   {

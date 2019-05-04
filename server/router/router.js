@@ -83,7 +83,7 @@ router.post('/movies', (req, res) => {
   if (!name) {
     res
       .status(400)
-      .redirect('/new');
+      .redirect('/movies/new');
   } else {
     db.createMovie({
       id, name, image, genre, yearReleased, length, rating, director, price,

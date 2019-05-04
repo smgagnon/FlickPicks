@@ -1,23 +1,7 @@
 [
   {
-    "username": "flick",
-    "password": "picks"
-  },
-  {
     "username": "smgagnon",
     "password": "$argon2i$v=19$m=4096,t=3,p=1$i9xq9f53jJaGI7MYn0C0nA$UUVUl92OCWclQYzviEwLUghU07vhuMdLWF4ISAPIdQg"
-  },
-  {
-    "username": "testing",
-    "password": "$argon2i$v=19$m=4096,t=3,p=1$XH1RoFrO4jIU9Pyk81Od8Q$LwUSprZR2c8/mHVtzcMmd1yXfxQrczOfmsR1iW13Egw"
-  },
-  {
-    "username": "jen",
-    "password": "$argon2i$v=19$m=4096,t=3,p=1$pdgm+lRZjxKaTe4Vx+lkcQ$kmxSa53YXTSiwV8fNQ7ThRLd2B37aERWD4lJT5gbgeM"
-  },
-  {
-    "username": "testing2",
-    "password": "$argon2i$v=19$m=4096,t=3,p=1$QQvghS0uiosqLGYtnfJ8oA$MFIJWWW6Ffu3Z5P2m+ED0WeEaEbu+GIsIku5CuoquPw"
   },
   {
     "username": "testing3",
